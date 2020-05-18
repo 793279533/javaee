@@ -1,0 +1,84 @@
+package cn.tf.bos.page;
+
+
+/**
+ * 分页查询接口
+ */
+public interface PageQuery {
+	/**
+	 * 分页查询
+	 * 
+	 * @param pageRequestBean
+	 * @return
+	 */
+	public PageResponseBean findByPage(PageRequestBean pageRequestBean);
+}
+
+
+package cn.tf.bos.page;
+
+import org.hibernate.criterion.DetachedCriteria;
+
+//通用分页查询
+public class PageRequestBean {
+	
+	private int page; // 当前页码
+	private int rows; // 每页记录条数
+
+	// 保存查询条件
+	private DetachedCriteria detachedCriteria; // 面向对象条件查询
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getRows() {
+		return rows;
+	}
+
+	public void setRows(int rows) {
+		this.rows = rows;
+	}
+
+	public DetachedCriteria getDetachedCriteria() {
+		return detachedCriteria;
+	}
+
+	public void setDetachedCriteria(DetachedCriteria detachedCriteria) {
+		this.detachedCriteria = detachedCriteria;
+	}
+
+	
+
+}
+
+package cn.tf.bos.page;
+
+import java.util.List;
+
+
+
+public class PageResponseBean {
+	
+	private long total; // 总记录数
+	private List rows; // 当前页数据记录
+	public long getTotal() {
+		return total;
+	}
+	public void setTotal(long total) {
+		this.total = total;
+	}
+	public List getRows() {
+		return rows;
+	}
+	public void setRows(List rows) {
+		this.rows = rows;
+	}
+	
+}
+
+
